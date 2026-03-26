@@ -1,0 +1,19 @@
+\frametitle{Python Code}
+\begin{lstlisting}
+plt.scatter([np.pi/2], [4], color='red', zorder=5, label="Point (π/2, 4)")
+
+# Horizontal dashed line for limit
+plt.axhline(4, linestyle='--', color='red', label="limit = 4")
+
+# Labels and title
+plt.title("Broad View of f(x) with Oscillations")
+plt.xlabel("x")
+plt.ylabel("f(x)")
+
+# Grid and legend
+plt.grid(True)
+plt.legend()
+
+# Show plot
+plt.show()
+\end{lstlisting}
