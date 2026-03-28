@@ -1,0 +1,21 @@
+\frametitle{Python Code 2}
+\begin{lstlisting}
+# Plot G(s)
+plt.figure()
+plt.plot(w, abs(G1), label="G1 = 1/(s+1)")
+plt.plot(w, abs(G2), '--', label="G2 = 5/(s+0.2)")
+plt.title("Large Difference in G(s)")
+plt.legend()
+plt.grid()
+plt.show()
+
+# Plot T(s)
+plt.figure()
+plt.plot(w, abs(T1), label="T with G1")
+plt.plot(w, abs(T2), '--', label="T with G2")
+plt.title("Closed-loop T(s) (Still Almost Same!)")
+plt.legend()
+plt.grid()
+plt.show()
+\end{lstlisting}
+
