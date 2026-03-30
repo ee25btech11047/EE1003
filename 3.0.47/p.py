@@ -1,0 +1,11 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+n = np.arange(1, 20)
+H = np.log2(n)
+
+plt.plot(n, H)
+plt.xlabel('n')
+plt.ylabel('Entropy H (bits)')
+plt.grid()
+plt.show()
