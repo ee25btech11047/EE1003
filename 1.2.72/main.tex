@@ -161,6 +161,81 @@ Substitute limits:
 \noindent\textbf{In one line:} Volume under the plane $z = 6 - x - y$ over a triangular region in the $xy$-plane.
 \end{frame}
 
+\begin{frame}{ Numerical Grid Squaring Method }
+
+In this method , region is divided into small squares of size:
+\begin{align}
+h \times h
+\end{align}
+
+At each grid point $(x_i, y_j)$, the function value is:
+\begin{align}
+f(x_i, y_j) = 6 - x_i - y_j
+\end{align}
+
+The double integral is approximated as:
+\begin{align}
+\int_{0}^{3} \int_{0}^{3-x} (6 - x - y)\, dy\, dx
+\approx
+\sum_{i} \sum_{j} (6 - x_i - y_j)\, h^2
+\end{align}
+
+\end{frame}
+\begin{frame}{Numerical Grid Squaring Method}
+
+\begin{enumerate}
+\item Choose a small step size $h$
+\item Loop over $x$ from $0$ to $3$
+\item For each $x$, loop over $y$ from $0$ to $3 - x$
+\item Accumulate:
+\begin{align}
+\text{sum} += (6 - x_i - y_j)
+\end{align}
+\item Multiply final sum by $h^2$
+\end{enumerate}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{Python Code for Grid Squaring Method}
+
+\begin{lstlisting}
+import numpy as np
+
+h = 0.001  # step size
+
+x = np.arange(0, 3 + h, h)
+
+total = 0
+
+for xi in x:
+    y = np.arange(0, 3 - xi + h, h)
+    for yj in y:
+        total += (6 - xi - yj)
+
+result = total * h * h
+
+print("Approximate Value =", result)
+\end{lstlisting}
+\end{frame}
+\begin{frame}{Conclusion}
+
+For $h$ = 0.01
+\begin{align}
+\int_{0}^{3} \int_{0}^{3-x} (6 - x - y)\, dy\, dx
+\approx
+\sum_{i} \sum_{j} (6 - x_i - y_j)\, h^2 = 18.018831724000133
+\end{align}
+
+For a sufficiently small step size $h$, the numerical result is:
+\begin{align}
+\boxed{18 \text{ (approximately)}}
+\end{align}
+
+\section*{Conclusion}
+
+The grid squaring method approximates the double integral by summing contributions over small squares. 
+Accuracy improves as the step size $h$ decreases.
+
+\end{frame}
 %-------------------------------------------------
 \begin{frame}[fragile]
 \frametitle{Python Code}
